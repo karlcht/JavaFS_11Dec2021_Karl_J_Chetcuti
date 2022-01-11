@@ -1,0 +1,52 @@
+
+1.	Research and find what is Abstraction (code examples required)
+
+It is way to hide internal data and other implementation details from the user. These details can communicate with the user using interfaces, who does not require to know or know about the complex code (implementation details and internal data). For example, consider the example of an email, the user does not know about the complex details such as what happens just after sending an email, which protocol is used by the server to send the message. Therefore, we just need to mention the address of the receiver, type the content and click the send button. Another way, it shows only essential things to the user and hides the internal details, for example, sending SMS where you type the text and send the message. You don't know the internal processing about the message delivery.
+
+Abstraction Code has been sent to git hub.
+
+2.	How is abstract class related to Abstraction ? 
+
+Abstraction in Java or Object-oriented programming is a way to segregate implementation from an interface and one of the five fundamentals along with Encapsulation, Inheritance, Polymorphism, Class, and Object.  Abstraction in Java is achieved by using the interface and abstract class in Java. An interface or abstract class is something that is not concrete, something which is incomplete. In order to use interface or abstract class, we need to extend and implement an abstract method with concrete behavior. One example of Abstraction is creating an interface to denote common behavior without specifying any details about how that behavior works like you create an interface called Server which has the start() and stop() method. This is called abstraction of Server because every server should have a way to start and stop and details may differ. 
+
+
+
+3.	A. Interface is a pure abstract class, interfaces will not have normal methods , interfaces can also have few things in java 8 or 9, what are those few things can interfaces have apart from abstract methods ? 
+B. Can interfaces have normal variables?
+	C. Can interfaces have methods with definitions? If so how ? or what ? 
+
+A.	Prior to java 8, interface in java can only have abstract methods. All the methods of interfaces are public & abstract by default. Java 8 allows the interfaces to have default and static methods. The reason we have default methods in interfaces is to allow the developers to add new methods to the interfaces without affecting the classes that implements these interfaces.
+B.	Interfaces can have variables but these behave as if they are static variables in normal classes. Accessing a variable from an interface is very similar to accessing a static variable in a class.
+C.	Before Java 8 Java interfaces could not contain an implementation of the methods, but only the method signatures. However, this resulted in some problems when an API needed to add a method to one of its interfaces. With java 8 and beyond, If the API just adds the method to the desired interface, all classes that implements the interface must implement that new method. A Java interface can have static methods. Static methods in a Java interface must have implementation. Java 8 has added the concept of interface default methods to Java interfaces. An interface default method can contain a default implementation of that method. Classes that implement the interface but which contain no implementation for the default interface will then automatically get the default method implementation. A class can override the implementation of a default method simply by implementing that method explicitly, as is done normally when implementing a Java interface. Any implementation in a class takes precedence over interface default method implementations.
+
+4.	How to implement multiple inheritance using interfaces 
+
+This can be shown by the below code: 
+
+Example
+
+interface AnimalEat {
+   void eat();
+}
+interface AnimalTravel {
+   void travel();
+}
+class Animal implements AnimalEat, AnimalTravel {
+   public void eat() {
+      System.out.println("Animal is eating");
+   }
+   public void travel() {
+      System.out.println("Animal is travelling");
+   }
+}
+public class Demo {
+   public static void main(String args[]) {
+      Animal a = new Animal();
+      a.eat();
+      a.travel();
+   }
+}
+
+
+	
+
