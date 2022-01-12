@@ -3,7 +3,102 @@
 
 It is way to hide internal data and other implementation details from the user. These details can communicate with the user using interfaces, who does not require to know or know about the complex code (implementation details and internal data). For example, consider the example of an email, the user does not know about the complex details such as what happens just after sending an email, which protocol is used by the server to send the message. Therefore, we just need to mention the address of the receiver, type the content and click the send button. Another way, it shows only essential things to the user and hides the internal details, for example, sending SMS where you type the text and send the message. You don't know the internal processing about the message delivery.
 
-Abstraction Code has been sent to git hub.
+Abstraction Code is as per below: 
+----------------------------------------------------------------------------
+
+
+import java.util.Scanner;
+
+
+ abstract class Emailchecklist 
+ {
+	 public abstract void emailto();
+	 public abstract void writemsg();
+	 public abstract void sendmsg();
+	 public abstract void printmsg();
+ }
+
+ class Emailfn extends Emailchecklist
+{
+	Scanner obj = new Scanner(System.in); 
+	String emailadd;
+	String message;	
+		
+	 public void emailto()
+	   
+	 {
+		
+		System.out.println("Enter Email Address: ");
+		this.emailadd = obj.next();
+		boolean isFoundat = emailadd.indexOf("@") !=-1? true: false;
+		boolean isFounddot = emailadd.indexOf(".") !=-1? true: false;
+		while (isFoundat == false ||  isFounddot == false)
+		{
+			System.out.println("Incorrect Email, re-enter Email");
+			emailadd = obj.next();
+			isFoundat = emailadd.indexOf("@") !=-1? true: false;
+			isFounddot = emailadd.indexOf(".") !=-1? true: false;
+		}
+		
+	 }
+	
+		 public void writemsg()
+		 {
+			
+			 System.out.println("Enter message of a minimum of 50 characters: "); 
+			 this.message = obj.nextLine();
+			 message = obj.nextLine();
+				message.length();
+				
+			 while (message.length() < 50)
+			 { System.out.println("Msg Less than 50 characters, Enter message of at least 50 characters: ");
+				message = obj.nextLine();
+				message.length();
+				
+			 }
+			 System.out.println("\n");
+		 }
+		
+		 public void sendmsg()
+		 {
+			
+			 System.out.println("Sending Email "); 
+			 System.out.println("Email Sent "); 
+			 System.out.println("\n"); 
+			 
+		 }
+	
+		 public void printmsg()
+		 {
+			
+			 System.out.println("Recepient:" + emailadd ); 
+			 System.out.println("\n"); 
+			 System.out.println("Message:" + "\n" + message);
+			 
+		 }
+}
+// Home work for 3rd and 4 th lesson 
+public class AbstractClassExample extends Emailfn {
+
+	
+	public static void main(String[] args) {
+		
+	    Emailfn email = new AbstractClassExample(); 
+	    email.emailto();
+	    email.writemsg(); 
+	    email.sendmsg();
+	    email.printmsg();
+	    
+	   
+	
+	
+	  }
+
+	
+}
+
+----------------------------------------------------------------------------
+
 
 2.	How is abstract class related to Abstraction ? 
 
